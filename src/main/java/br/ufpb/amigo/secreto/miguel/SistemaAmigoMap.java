@@ -1,33 +1,35 @@
 package br.ufpb.amigo.secreto.miguel;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-public class SistemaAmigoSecreto {
+public class SistemaAmigoMap {
     private List<Mensagem> mensagens;
-    private List<Amigo> amigos;
+    private Map<String, Amigo> amigos;
 
-    public SistemaAmigoSecreto() {
+    public SistemaAmigoMap() {
         this.mensagens = new ArrayList<Mensagem>();
-        this.amigos = new ArrayList<Amigo>();
+        this.amigos = new HashMap<>();
     }
 
-    public void cadastraAmigo(String nomeAmigo, String emailAmigo) throws AmigoJaExisteException, AmigoInexistenteException {
-            if(pesquisaAmigo(emailAmigo) != null){
-                throw new AmigoJaExisteException("Amigo já existe no banco de dados");
-            }
-        Amigo novoAmigo = new Amigo(nomeAmigo, emailAmigo);
-        amigos.add(novoAmigo);}
-
-    public Amigo pesquisaAmigo(String emailAmigo)throws AmigoInexistenteException{
-        for (Amigo amigo : amigos) {
-            if (amigo.getEmail().equals(emailAmigo)) {
-                return amigo;
-
-            }
+    public void cadastraAmigo(String nomeAmigo, String emailAmigo) throws AmigoJaExisteException {
+        ;
+        if (amigos.containsKey(nomeAmigo)) {
+            throw new AmigoJaExisteException("Amigo já existe no banco de dados.");
         }
-        throw new AmigoInexistenteException("Amigo não existe no banco de dados");
 
+        Amigo amigo = new Amigo(nomeAmigo, emailAmigo);
+        amigos.put(emailAmigo, amigo);
+    }
+
+
+    public Amigo pesquisaAmigo(String emailAmigo) throws AmigoInexistenteException {
+        if (amigos.containsKey(emailAmigo)) {
+            return amigos.get(emailAmigo);
+        }
+        throw new AmigoInexistenteException("Amigo inexistente.");
     }
 
     public void enviarMensagemParaTodos(String texto, String emailRemetente, boolean ehAnonima) {
@@ -58,9 +60,8 @@ public class SistemaAmigoSecreto {
         Amigo amigo = pesquisaAmigo(emailDaPessoa);
         if (amigo != null) {
             amigo.setAmigoSorteado(emailAmigoSorteado);
-        }
-        else {
-            throw new AmigoInexistenteException("Carta não encontrada");
+        } else {
+            throw new AmigoInexistenteException("Amigo não encontrado");
         }
     }
 

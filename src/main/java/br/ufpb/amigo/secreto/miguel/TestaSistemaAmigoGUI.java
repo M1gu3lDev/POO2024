@@ -3,9 +3,9 @@ import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TestaSistemaAmigoGUI {
+public class TestaSistemaAmigoGUI{
 
-    public static void main(String[] args) throws AmigoInexistenteException {
+    public static void main(String[] args) throws AmigoInexistenteException, AmigoJaExisteException, AmigoNaoSorteadoException{
         SistemaAmigoSecreto sistemaAmigo = new SistemaAmigoSecreto();
         List<Amigo> amigos = new ArrayList<>();
 

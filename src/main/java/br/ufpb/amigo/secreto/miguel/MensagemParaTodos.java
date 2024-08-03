@@ -8,9 +8,9 @@ public class MensagemParaTodos extends Mensagem {
     @Override
     public String GetTextoCompletoAExibir() {
         if(isAnonima()) {
-            return "“Mensagem  para Todos. Texto: " + getTexto();
+            return "Mensagem  para Todos. Texto: " + getTexto();
         }
-        return "“Mensagem de"+ getEmailRemetente()+ "para todas. Texto: " + getTexto();
+        return "Mensagem de"+ getEmailRemetente()+ "para todas. Texto: " + getTexto();
     }
     }
 

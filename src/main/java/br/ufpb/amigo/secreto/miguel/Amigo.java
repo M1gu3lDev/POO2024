@@ -10,7 +10,7 @@ public class Amigo {
     public Amigo(String nome, String email) {
         this.nome = nome;
         this.email = email;
-        this.emailAmigoSorteado = null;
+        this.emailAmigoSorteado = "";
     }
 
     public String getEmail() {

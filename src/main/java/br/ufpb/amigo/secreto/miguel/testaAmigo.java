@@ -1,7 +1,7 @@
 package br.ufpb.amigo.secreto.miguel;
 
 public class testaAmigo {
-    public static void main(String[] args) throws AmigoInexistenteException, AmigoNaoSorteadoException{
+    public static void main(String[] args) throws AmigoInexistenteException, AmigoNaoSorteadoException, AmigoJaExisteException {
         SistemaAmigoSecreto sistema = new SistemaAmigoSecreto();
         sistema.cadastraAmigo("Maria", "Maria.java@gmail.com");
         sistema.cadastraAmigo("Jose", "Jose.java@gmail.com");

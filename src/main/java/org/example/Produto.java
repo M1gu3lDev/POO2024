@@ -2,20 +2,26 @@ package org.example;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Produto {
 
 
     private String nome;
-    private String CodigoDeBarras;
+    private String tipo;
+    private double preco;
+    private String codigoDeBarras;
     int quantidade;
-    Collection<DataDeValidade> datasDeValidade;
+    Map<String,Lote> lote;
 
-    public Produto(String nome, String codigoDeBarras) {
+    public Produto(String nome,String tipo, String codigoDeBarras, double preco) {
         this.nome = nome;
-        this.CodigoDeBarras = codigoDeBarras;
+        this.preco = preco;
+        this.tipo = tipo;
+        this.codigoDeBarras = codigoDeBarras;
         this.quantidade = 0;
-        this.datasDeValidade = new ArrayList<DataDeValidade>();
+        this.lote = new HashMap<String,Lote>();
     }
 
     public String getNome() {
@@ -25,21 +31,32 @@ public class Produto {
     public void setNome(String nome) {
         this.nome = nome;
     }
-
+    public double getPreco() {
+        return preco;
+    }
+    public void setPreco(double preco) {
+        this.preco = preco;
+    }
+    public String getTipo() {
+        return tipo;
+    }
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
     public String getCodigoDeBarras() {
-        return CodigoDeBarras;
+        return codigoDeBarras;
     }
 
     public void setCodigoDeBarras(String codigoDeBarras) {
-        CodigoDeBarras = codigoDeBarras;
+        codigoDeBarras = codigoDeBarras;
     }
 
-    public Collection<DataDeValidade> getDatasDeValidade() {
-        return datasDeValidade;
+    public Collection<Lote> getLote() {
+        return lote.values();
     }
 
-    public void setDatasDeValidade(DataDeValidade datasDeValidade) {
-        this.datasDeValidade.add(datasDeValidade);
+    public void setLote(Lote lote) {
+        this.lote.put(lote.getLote(), lote);
     }
 
     public int getQuantidade() {

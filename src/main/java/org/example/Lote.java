@@ -1,12 +1,19 @@
 package org.example;
 
-public class DataDeValidade {
-        private String data;
+public class Lote {
         private String lote;
-        public int quantidade;
-        public DataDeValidade(String data, int quantidade){
+        private String data;
+        private String local;
+        private String codigoDeBarras;
+        private int quantidade;
+
+
+        public Lote(String data, int quantidade, String lote, String local, String CodigoDeBarras){
             this.data = data;
+            this.codigoDeBarras = CodigoDeBarras;
             this.quantidade = quantidade;
+            this.lote = lote;
+            this.local = local;
         }
         public String getData(){
             return data;
@@ -25,5 +32,11 @@ public class DataDeValidade {
         }
         public void setLote(String lote){
             this.lote = lote;
+        }
+        public String getLocal(){
+            return local;
+        }
+        public void setLocal(String local){
+            this.local = local;
         }
     }

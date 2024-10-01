@@ -1,4 +1,4 @@
-package org.example;
+package Miguel.ufpb.mercado;
 
 public class Lote {
         private String lote;

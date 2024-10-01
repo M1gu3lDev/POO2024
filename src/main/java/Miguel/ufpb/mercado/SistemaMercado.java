@@ -1,4 +1,4 @@
-package org.example;
+package Miguel.ufpb.mercado;
 
 import java.util.*;
 
@@ -20,22 +20,22 @@ public class SistemaMercado implements MercadoInterface{
     }
 
     @Override
-    public void removerProduto(int id) {
+    public void removerProduto(String id) {
         produtos.remove(id);
     }
 
     @Override
-    public void adicionarUnidade(int id, Lote lote) {
+    public void adicionarUnidade(String id, Lote lote) {
         produtos.get(id).lote.put(lote.getLote(), lote);
     }
 
     @Override
-    public void removerUnidade(int id, String lote, int quantidade) {
+    public void removerUnidade(String id, String lote, int quantidade) {
         produtos.get(id).lote.get(lote).setQuantidade( produtos.get(id).lote.get(lote).getQuantidade() - quantidade);
     }
 
     @Override
-    public Lote BuscarProdutosPorLote(int id, String lote) throws LoteNaoEncontradoException {
+    public Lote BuscarProdutosPorLote(String id, String lote) throws LoteNaoEncontradoException {
         produtos.get(id).lote.get(lote);
         throw new LoteNaoEncontradoException("Lote não encontrado");
     }
@@ -54,7 +54,7 @@ public class SistemaMercado implements MercadoInterface{
     }
 
     @Override
-    public void alterarPreco(int id, int preco) {
+    public void alterarPreco(String id, int preco) {
         produtos.get(id).setPreco(preco);
     }
     public void alterarNome(String nome, int id) {

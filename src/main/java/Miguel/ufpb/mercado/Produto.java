@@ -47,7 +47,7 @@ public class Produto {
     }
 
     public void setCodigoDeBarras(String codigoDeBarras) {
-        codigoDeBarras = codigoDeBarras;
+        this.codigoDeBarras = codigoDeBarras;
     }
 
     public Collection<Lote> getLote() {
@@ -64,5 +64,10 @@ public class Produto {
 
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
+    }
+
+    @Override
+    public String toString() {
+        return "Nome: "+nome+"Tipo: "+tipo+"Preco: "+preco+"Quantidade: "+quantidade;
     }
 }

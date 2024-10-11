@@ -15,18 +15,22 @@ public class SistemaMercado implements MercadoInterface{
     }
 
     @Override
-    public void cadastrarProduto(Produto produto) {
+    public boolean cadastrarProduto(Produto produto) {
         produtos.put(produto.getCodigoDeBarras(), produto);
+        return produtos.containsKey(produto.getCodigoDeBarras());
     }
 
     @Override
-    public void removerProduto(String id) {
+    public boolean removerProduto(String id) {
         produtos.remove(id);
+        return produtos.containsKey(id);
     }
 
     @Override
-    public void adicionarUnidade(String id, Lote lote) {
+    public boolean adicionarUnidade(String id, Lote lote) {
         produtos.get(id).lote.put(lote.getLote(), lote);
+        return produtos.get(id).lote.containsKey(lote.getLote());
+
     }
 
     @Override

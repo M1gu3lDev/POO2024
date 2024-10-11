@@ -39,4 +39,10 @@ public class Lote {
         public void setLocal(String local){
             this.local = local;
         }
+        public String getCodigoDeBarras(){
+            return codigoDeBarras;
+        }
+        public void setCodigoDeBarras(String codigoDeBarras){
+            this.codigoDeBarras = codigoDeBarras;
+        }
     }
